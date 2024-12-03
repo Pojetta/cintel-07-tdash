@@ -1,0 +1,95 @@
+/* Styling the page title */
+.bslib-page-title.navbar-brand {
+    color: white !important; /* Change text color to white */
+    background-color: #2A2A2A !important; /* Change background color to dark orange */
+    padding: 10px; /* Add some padding for better spacing */
+    text-align: left; /* Center-align the text */
+    font-weight: 600; /* Make the title text bold */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    display: block; /* Allow the background to stretch full-width */
+    width: 100%; /* Ensure the element spans the full width of its container */
+    margin: 0; /* Remove any default margin that could cause gaps */
+}
+
+/* Sidebar background and text styling */
+.sidebar {
+    background-color: white !important; /* Dark gray background */
+    color: #2A2A2A; /* White text for all sidebar content */
+}
+
+/* Sidebar title */
+.sidebar-title {
+    background-color: white; /* Teal background */
+    color: #2A2A2A;
+    font-weight: 600;
+}
+
+/* Slider track and thumb customization */
+.irs-single { 
+    background-color: #2A2A2A !important; /* Slider value background */
+    color: #2A2A2A !important; /* Slider value text */
+}
+
+/* Slider bar color */
+.irs-bar {
+    background: #2A2A2A !important; /* Teal for the filled slider bar */
+    border: none !important; /* Remove border */
+}
+
+/* Slider range color (unfilled part) */
+.irs-line {
+    background: #2A2A2A !important; /* Match sidebar background */
+    border: 1px solid #2A2A2A !important; /* Teal border */
+}
+
+/* Slider handle customization */
+.irs-handle {
+    background: #2A2A2A !important; /* Orange handle */
+    border: 2px solid #2A2A2A !important; /* White outline */
+    border-radius: 50%; /* Make handle circular */
+}
+
+/* Hover effect for the slider handle */
+.irs-handle:hover {
+    background: #2A2A2A !important; /* Purple on hover */
+    border-color: #2A2A2A !important; /* Gold outline on hover */
+}
+
+/* Ensure form labels are visible */
+.sidebar-content .control-label {
+    color: #2A2A2A; /* Teal for form labels */
+    font-weight: 600; /* Bold for better readability */
+}
+
+/* Style input elements to match the theme */
+.sidebar-content input,
+.sidebar-content .irs-single {
+    background-color: #2A2A2A !important; /* Teal background for inputs */
+    color: white !important; /* White text inside inputs */
+    border: #2A2A2A; /* Remove borders for a cleaner look */
+}
+
+/* Add some styling for checkboxes */
+.sidebar-content .checkbox label {
+    color: #2A2A2A; /* White checkbox labels */
+}
+
+/* Remove blue border when checkbox is checked */
+input[type="checkbox"]:checked {
+    outline: none; /* Remove the focus outline */
+    border: none; /* Remove any border */
+    box-shadow: none; /* Remove shadow effect */
+}
+
+
+/* Style sidebar links for better visibility */
+.sidebar-content a {
+    color: purple; /* Orange links */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold links */
+}
+
+.sidebar-content a:hover {
+    color: darkorange; /* Purple for hover effect */
+    text-decoration: underline; /* Underline on hover */
+}
