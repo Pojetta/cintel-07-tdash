@@ -1,5 +1,6 @@
 import seaborn as sns
 from faicons import icon_svg
+from pathlib import Path
 
 from shiny import reactive
 from shiny.express import input, render, ui
@@ -7,11 +8,11 @@ import palmerpenguins
 
 df = palmerpenguins.load_penguins()
 
-ui.page_opts(title="Penguins dashboard", fillable=True)
+ui.page_opts(title="Palmer Penguins", fillable=True)
 
 
-with ui.sidebar(title="Filter controls"):
-    ui.input_slider("mass", "Mass", 2000, 6000, 6000)
+with ui.sidebar(title="Filters"):
+    ui.input_slider("mass", "Body Mass", 2000, 6000, 6000)
     ui.input_checkbox_group(
         "species",
         "Species",
@@ -22,17 +23,17 @@ with ui.sidebar(title="Filter controls"):
     ui.h6("Links")
     ui.a(
         "GitHub Source",
-        href="https://github.com/denisecase/cintel-07-tdash",
+        href="https://github.com/pojetta/cintel-07-tdash",
         target="_blank",
     )
     ui.a(
         "GitHub App",
-        href="https://denisecase.github.io/cintel-07-tdash/",
+        href="https://pojetta.github.io/cintel-07-tdash/",
         target="_blank",
     )
     ui.a(
         "GitHub Issues",
-        href="https://github.com/denisecase/cintel-07-tdash/issues",
+        href="https://github.com/pojetta/cintel-07-tdash/issues",
         target="_blank",
     )
     ui.a("PyShiny", href="https://shiny.posit.co/py/", target="_blank")
@@ -73,7 +74,7 @@ with ui.layout_column_wrap(fill=False):
 
 with ui.layout_columns():
     with ui.card(full_screen=True):
-        ui.card_header("Bill length and depth")
+        ui.card_header("Length vs Bill depth")
 
         @render.plot
         def length_depth():
