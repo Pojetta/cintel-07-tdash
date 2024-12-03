@@ -4,9 +4,16 @@ from faicons import icon_svg  # Provides access to icon assets for UI
 from shiny import reactive  # Enables reactive programming
 from shiny.express import input, render, ui  # Simplifies Shiny UI and server definitions
 import palmerpenguins  # Dataset for visualizations and analysis
+from pathlib import Path  # For working with file system paths
+
+
 
 # Load the Palmer Penguins dataset
 df = palmerpenguins.load_penguins()
+
+css_file = Path(__file__).parent / "css" / "styles.css"
+
+ui.include_css(css_file)
 
 # Set global options for the UI
 ui.page_opts(title="Palmer Penguins", fillable=True)
@@ -55,7 +62,7 @@ with ui.sidebar(title="Filters"):
 
 # Layout with value boxes to display calculated statistics
 with ui.layout_column_wrap(fill=False):
-    with ui.value_box(showcase=icon_svg("earlybirds")):
+    with ui.value_box(showcase=icon_svg("earlybirds"), theme=ui.value_box_theme(bg="#1b7978"),class_="text-center"):
         "Number of penguins"
 
         # Render total count of filtered penguins
@@ -63,7 +70,7 @@ with ui.layout_column_wrap(fill=False):
         def count():
             return filtered_df().shape[0]
 
-    with ui.value_box(showcase=icon_svg("ruler-horizontal")):
+    with ui.value_box(showcase=icon_svg("ruler-horizontal"), theme=ui.value_box_theme(bg="purple"),class_="text-center"):
         "Average bill length"
 
         # Render average bill length
@@ -71,7 +78,7 @@ with ui.layout_column_wrap(fill=False):
         def bill_length():
             return f"{filtered_df()['bill_length_mm'].mean():.1f} mm"
 
-    with ui.value_box(showcase=icon_svg("ruler-vertical")):
+    with ui.value_box(showcase=icon_svg("ruler-vertical"), theme=ui.value_box_theme(bg="darkorange"),class_="text-center"):
         "Average bill depth"
 
         # Render average bill depth
@@ -82,7 +89,7 @@ with ui.layout_column_wrap(fill=False):
 # Layout with two cards: one for a scatterplot and one for a data table
 with ui.layout_columns():
     with ui.card(full_screen=True):
-        ui.card_header("Length vs Bill depth")
+        ui.card_header("Length vs Bill depth", style="color: white; background-color: #2A2A2A;")
 
         # Scatterplot of bill length vs. bill depth, colored by species
         @render.plot
@@ -92,10 +99,11 @@ with ui.layout_columns():
                 x="bill_length_mm",
                 y="bill_depth_mm",
                 hue="species",
+                palette={"Adelie": "#1b7978", "Gentoo": "purple", "Chinstrap": "darkorange"}
             )
 
     with ui.card(full_screen=True):
-        ui.card_header("Penguin data")
+        ui.card_header("Penguin data", style="color: white; background-color: #2A2A2A;")
 
         # Render data table of filtered penguin data with selected columns
         @render.data_frame
