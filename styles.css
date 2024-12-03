@@ -1,5 +1,7 @@
 Include this in the app.py:
 
+from pathlib import Path  # For working with file system paths
+
 css_file = Path(__file__).parent / "css" / "styles.css"
 
 ui.include_css(css_file)
